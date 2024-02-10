@@ -1,0 +1,17 @@
+.line-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.negotiation-svg-true{
+    fill: limegreen;
+}
+
+.negotiation-svg-false{
+    fill: red;
+}
+.svg-small{
+    width: 25px;
+}
