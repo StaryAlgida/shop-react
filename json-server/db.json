@@ -1,0 +1,410 @@
+{
+  "name": {
+    "name": "Favian",
+    "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1088.jpg"
+  },
+  "categories": [
+    {
+      "id": 0,
+      "title": "Industrial"
+    },
+    {
+      "id": 1,
+      "title": "Garden"
+    },
+    {
+      "id": 2,
+      "title": "Perfume"
+    },
+    {
+      "id": 3,
+      "title": "Computers"
+    },
+    {
+      "id": 4,
+      "title": "Automotive"
+    },
+    {
+      "id": 5,
+      "title": "Books"
+    },
+    {
+      "id": 6,
+      "title": "Game"
+    },
+    {
+      "id": 7,
+      "title": "Outdoors"
+    },
+    {
+      "id": 8,
+      "title": "Food"
+    },
+    {
+      "id": 9,
+      "title": "Electronics"
+    }
+  ],
+  "adverts": [
+    {
+      "id": 0,
+      "title": "Small Concrete Tuna",
+      "price": "778.00",
+      "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+      "seller": "Raoul",
+      "image": "http://placeimg.com/400/400/business?i=0",
+      "sellerPhone": "+48 445 710 968",
+      "canNegotiate": false,
+      "createdOn": "2022-05-08T09:32:20.970Z",
+      "categoryId": 9
+    },
+    {
+      "id": 1,
+      "title": "Practical Concrete Salad",
+      "price": "496.00",
+      "description": "The Football Is Good For Training And Recreational Purposes",
+      "seller": "Harvey",
+      "image": "http://placeimg.com/400/400/business?i=1",
+      "sellerPhone": "+48 707 481 970",
+      "canNegotiate": true,
+      "createdOn": "2022-05-07T22:35:08.870Z",
+      "categoryId": 3
+    },
+    {
+      "id": 2,
+      "title": "Rustic Plastic Keyboard",
+      "price": "147.00",
+      "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+      "seller": "Cedrick",
+      "image": "http://placeimg.com/400/400/business?i=2",
+      "sellerPhone": "+48 693 117 579",
+      "canNegotiate": true,
+      "createdOn": "2022-05-08T11:29:34.009Z",
+      "categoryId": 2
+    },
+    {
+      "id": 3,
+      "title": "Practical Concrete Hat",
+      "price": "754.00",
+      "description": "The Football Is Good For Training And Recreational Purposes",
+      "seller": "Rocio",
+      "image": "http://placeimg.com/400/400/business?i=3",
+      "sellerPhone": "+48 784 042 252",
+      "canNegotiate": true,
+      "createdOn": "2022-05-08T15:38:38.891Z",
+      "categoryId": 4
+    },
+    {
+      "id": 4,
+      "title": "Awesome Frozen Chair",
+      "price": "741.00",
+      "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+      "seller": "Ashlynn",
+      "image": "http://placeimg.com/400/400/business?i=4",
+      "sellerPhone": "+48 169 161 439",
+      "canNegotiate": true,
+      "createdOn": "2022-05-07T17:09:46.902Z",
+      "categoryId": 8
+    },
+    {
+      "id": 5,
+      "title": "Licensed Cotton Shoes",
+      "price": "489.00",
+      "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+      "seller": "Ike",
+      "image": "http://placeimg.com/400/400/business?i=5",
+      "sellerPhone": "+48 787 869 792",
+      "canNegotiate": false,
+      "createdOn": "2022-05-07T17:41:59.967Z",
+      "categoryId": 7
+    },
+    {
+      "id": 6,
+      "title": "Practical Concrete Salad",
+      "price": "787.00",
+      "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+      "seller": "Tavares",
+      "image": "http://placeimg.com/400/400/business?i=6",
+      "sellerPhone": "+48 169 358 003",
+      "canNegotiate": false,
+      "createdOn": "2022-05-08T05:50:44.886Z",
+      "categoryId": 3
+    },
+    {
+      "id": 7,
+      "title": "Practical Rubber Mouse",
+      "price": "624.00",
+      "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+      "seller": "Raven",
+      "image": "http://placeimg.com/400/400/business?i=7",
+      "sellerPhone": "+48 584 048 300",
+      "canNegotiate": false,
+      "createdOn": "2022-05-08T05:29:30.384Z",
+      "categoryId": 6
+    },
+    {
+      "id": 8,
+      "title": "Rustic Soft Pizza",
+      "price": "845.00",
+      "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+      "seller": "Hipolito",
+      "image": "http://placeimg.com/400/400/business?i=8",
+      "sellerPhone": "+48 980 253 438",
+      "canNegotiate": true,
+      "createdOn": "2022-05-07T18:33:10.470Z",
+      "categoryId": 9
+    },
+    {
+      "id": 9,
+      "title": "Small Fresh Computer",
+      "price": "19.00",
+      "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+      "seller": "Gertrude",
+      "image": "http://placeimg.com/400/400/business?i=9",
+      "sellerPhone": "+48 357 958 960",
+      "canNegotiate": false,
+      "createdOn": "2022-05-08T06:02:04.322Z",
+      "categoryId": 4
+    },
+    {
+      "id": 10,
+      "title": "Rustic Granite Sausages",
+      "price": "825.00",
+      "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+      "seller": "Emelie",
+      "image": "http://placeimg.com/400/400/business?i=10",
+      "sellerPhone": "+48 847 297 011",
+      "canNegotiate": false,
+      "createdOn": "2022-05-08T10:25:04.020Z",
+      "categoryId": 2
+    },
+    {
+      "id": 11,
+      "title": "Intelligent Steel Salad",
+      "price": "642.00",
+      "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+      "seller": "Makayla",
+      "image": "http://placeimg.com/400/400/business?i=11",
+      "sellerPhone": "+48 820 856 800",
+      "canNegotiate": false,
+      "createdOn": "2022-05-07T23:54:16.273Z",
+      "categoryId": 0
+    },
+    {
+      "id": 12,
+      "title": "Rustic Soft Car",
+      "price": "279.00",
+      "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients",
+      "seller": "Damian",
+      "image": "http://placeimg.com/400/400/business?i=12",
+      "sellerPhone": "+48 797 357 669",
+      "canNegotiate": true,
+      "createdOn": "2022-05-08T13:43:01.145Z",
+      "categoryId": 0
+    },
+    {
+      "id": 13,
+      "title": "Generic Fresh Chips",
+      "price": "448.00",
+      "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+      "seller": "Ansel",
+      "image": "http://placeimg.com/400/400/business?i=13",
+      "sellerPhone": "+48 685 588 835",
+      "canNegotiate": true,
+      "createdOn": "2022-05-08T07:43:11.074Z",
+      "categoryId": 2
+    },
+    {
+      "id": 14,
+      "title": "Rustic Steel Sausages",
+      "price": "364.00",
+      "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+      "seller": "Johnathan",
+      "image": "http://placeimg.com/400/400/business?i=14",
+      "sellerPhone": "+48 494 748 323",
+      "canNegotiate": true,
+      "createdOn": "2022-05-08T04:51:33.990Z",
+      "categoryId": 6
+    },
+    {
+      "id": 15,
+      "title": "Handmade Plastic Gloves",
+      "price": "279.00",
+      "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
+      "seller": "Juvenal",
+      "image": "http://placeimg.com/400/400/business?i=15",
+      "sellerPhone": "+48 459 735 097",
+      "canNegotiate": true,
+      "createdOn": "2022-05-08T10:10:25.442Z",
+      "categoryId": 9
+    },
+    {
+      "id": 16,
+      "title": "Practical Cotton Shirt",
+      "price": "734.00",
+      "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016",
+      "seller": "Wendell",
+      "image": "http://placeimg.com/400/400/business?i=16",
+      "sellerPhone": "+48 062 661 245",
+      "canNegotiate": true,
+      "createdOn": "2022-05-07T23:04:42.023Z",
+      "categoryId": 4
+    },
+    {
+      "id": 17,
+      "title": "Ergonomic Cotton Shirt",
+      "price": "26.00",
+      "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+      "seller": "Doyle",
+      "image": "http://placeimg.com/400/400/business?i=17",
+      "sellerPhone": "+48 700 290 447",
+      "canNegotiate": true,
+      "createdOn": "2022-05-08T06:05:17.550Z",
+      "categoryId": 2
+    },
+    {
+      "id": 18,
+      "title": "Awesome Soft Sausages",
+      "price": "307.00",
+      "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
+      "seller": "Nathaniel",
+      "image": "http://placeimg.com/400/400/business?i=18",
+      "sellerPhone": "+48 712 875 445",
+      "canNegotiate": true,
+      "createdOn": "2022-05-07T23:53:05.757Z",
+      "categoryId": 6
+    },
+    {
+      "id": 19,
+      "title": "Generic Metal Chips",
+      "price": "51.00",
+      "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+      "seller": "Laurence",
+      "image": "http://placeimg.com/400/400/business?i=19",
+      "sellerPhone": "+48 194 239 072",
+      "canNegotiate": true,
+      "createdOn": "2022-05-08T03:36:20.866Z",
+      "categoryId": 8
+    },
+    {
+      "id": 20,
+      "title": "Handmade Concrete Pants",
+      "price": "153.00",
+      "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design",
+      "seller": "Kenton",
+      "image": "http://placeimg.com/400/400/business?i=20",
+      "sellerPhone": "+48 564 399 073",
+      "canNegotiate": false,
+      "createdOn": "2022-05-08T06:37:15.761Z",
+      "categoryId": 9
+    },
+    {
+      "id": 21,
+      "title": "Intelligent Rubber Keyboard",
+      "price": "407.00",
+      "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+      "seller": "Alivia",
+      "image": "http://placeimg.com/400/400/business?i=21",
+      "sellerPhone": "+48 516 242 397",
+      "canNegotiate": false,
+      "createdOn": "2022-05-08T02:09:39.387Z",
+      "categoryId": 9
+    },
+    {
+      "id": 22,
+      "title": "Licensed Granite Hat",
+      "price": "173.00",
+      "description": "The Football Is Good For Training And Recreational Purposes",
+      "seller": "Reilly",
+      "image": "http://placeimg.com/400/400/business?i=22",
+      "sellerPhone": "+48 834 042 116",
+      "canNegotiate": true,
+      "createdOn": "2022-05-08T12:26:04.247Z",
+      "categoryId": 2
+    },
+    {
+      "id": 23,
+      "title": "Tasty Soft Pants",
+      "price": "736.00",
+      "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+      "seller": "Ford",
+      "image": "http://placeimg.com/400/400/business?i=23",
+      "sellerPhone": "+48 558 410 815",
+      "canNegotiate": false,
+      "createdOn": "2022-05-07T17:58:50.563Z",
+      "categoryId": 3
+    },
+    {
+      "id": 24,
+      "title": "Handmade Soft Chicken",
+      "price": "874.00",
+      "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+      "seller": "Elmore",
+      "image": "http://placeimg.com/400/400/business?i=24",
+      "sellerPhone": "+48 444 658 468",
+      "canNegotiate": true,
+      "createdOn": "2022-05-08T05:13:36.201Z",
+      "categoryId": 1
+    },
+    {
+      "id": 25,
+      "title": "Incredible Metal Shirt",
+      "price": "850.00",
+      "description": "The Nagasaki Lander is the trademarked name of several series of Nagasaki sport bikes, that started with the 1984 ABC800J",
+      "seller": "Tyrell",
+      "image": "http://placeimg.com/400/400/business?i=25",
+      "sellerPhone": "+48 057 776 634",
+      "canNegotiate": false,
+      "createdOn": "2022-05-08T11:43:38.966Z",
+      "categoryId": 4
+    },
+    {
+      "id": 26,
+      "title": "Handcrafted Steel Chips",
+      "price": "756.00",
+      "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive",
+      "seller": "Kamryn",
+      "image": "http://placeimg.com/400/400/business?i=26",
+      "sellerPhone": "+48 555 724 788",
+      "canNegotiate": false,
+      "createdOn": "2022-05-07T23:25:27.373Z",
+      "categoryId": 8
+    },
+    {
+      "id": 27,
+      "title": "Rustic Rubber Shirt",
+      "price": "531.00",
+      "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals",
+      "seller": "Tressie",
+      "image": "http://placeimg.com/400/400/business?i=27",
+      "sellerPhone": "+48 590 117 863",
+      "canNegotiate": false,
+      "createdOn": "2022-05-08T15:35:27.020Z",
+      "categoryId": 2
+    },
+    {
+      "id": 28,
+      "title": "Intelligent Rubber Chips",
+      "price": "104.00",
+      "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+      "seller": "Elliott",
+      "image": "http://placeimg.com/400/400/business?i=28",
+      "sellerPhone": "+48 658 561 264",
+      "canNegotiate": false,
+      "createdOn": "2022-05-08T03:43:20.391Z",
+      "categoryId": 4
+    },
+    {
+      "id": 29,
+      "title": "Awesome Granite Soap",
+      "price": "751.00",
+      "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit",
+      "seller": "Lydia",
+      "image": "http://placeimg.com/400/400/business?i=29",
+      "sellerPhone": "+48 906 383 525",
+      "canNegotiate": true,
+      "createdOn": "2022-05-07T23:40:38.826Z",
+      "categoryId": 5
+    }
+  ]
+}

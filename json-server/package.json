@@ -1,0 +1,16 @@
+{
+  "name": "json-server-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "preinstall": "npm install -g json-server",
+    "start": "json-server --watch --port 3200 db.json",
+    "start-random": "json-server --port 3200 index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^6.0.0"
+  }
+}

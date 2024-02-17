@@ -5,62 +5,15 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import axios from "axios";
-import {useEffect, useState} from "react";
 import {LinkContainer} from 'react-router-bootstrap'
 import LoadingSpinner from "./LoadingSpinner.jsx";
-
-export const useCategories = () => {
-    const [categories, setCategories] = useState([])
-
-    useEffect(() => {
-        const getCategories = async () => {
-            try {
-                const response = await axios.get("/categories")
-                const titlesOnly = [...new Set(response.data.map(item => (
-                    item.title
-                )))]
-                let id = 0;
-                const correctData = titlesOnly.map(title => {
-                    id += 1
-                    return (
-                        {
-                            id,
-                            title,
-                        }
-                    )
-                })
-                setCategories([...correctData])
-            } catch (error) {
-                if (axios.isAxiosError(error))
-                    console.log(error)
-            }
-        }
-        void getCategories();
-    }, []);
-
-    return categories;
-}
+import {useCategories} from "./customHooks/useCategories.jsx";
+import {useUserData} from "./customHooks/useUserData.jsx";
 
 
 export default function Header() {
     const categories = useCategories()
-
-    // TODO: move to custom hook
-    const [userData, setUserData] = useState({})
-
-    useEffect(() => {
-        const getLoggedUser = async () => {
-            try {
-                const response = await axios.get("/name")
-                setUserData({...response.data})
-                console.log(response.data)
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        void getLoggedUser();
-    }, []);
+    const userData = useUserData()
 
     return (
         <Navbar expand={'lg'} className="bg-body-tertiary mb-3">
@@ -94,7 +47,7 @@ export default function Header() {
                                 id={`offcanvasNavbarDropdown-expand-${'lg'}`}
                             >
                                 {categories.length !== 0 ? categories.map(item => (
-                                    <LinkContainer key={item.id} to={`/category/${item.title.toLowerCase()}`}>
+                                    <LinkContainer key={item.id} to={`/category/${item.id}`}>
                                         <NavDropdown.Item>{item.title}</NavDropdown.Item>
                                     </LinkContainer>
                                 )) : <div className='ms-3'><LoadingSpinner/></div>}

@@ -1,0 +1,54 @@
+### Get all records
+GET http://localhost:3200/adverts
+Accept: application/json
+
+### Get single record
+GET http://localhost:3200/adverts/2
+Accept: application/json
+
+### Add new record to array
+POST http://localhost:3200/adverts
+Content-Type: application/json
+
+{
+  "title": "New New Chair",
+  "price": "100.00",
+  "description": "New New chair",
+  "seller": "Piotr",
+  "image": "http://placeimg.com/400/400/business",
+  "sellerPhone": "+48 456 456 456",
+  "canNegotiate": true,
+  "createdOn": "2022-03-18T16:00:55.466Z",
+  "categoryId": 5
+}
+
+### Set given object to single record
+PUT http://localhost:3200/adverts/2
+Content-Type: application/json
+
+{
+  "title": "Old Old Chair",
+  "price": "100.00",
+  "seller": "Piotr",
+  "image": "http://placeimg.com/400/400/business",
+  "sellerPhone": "+48 456 456 456",
+  "canNegotiate": true,
+  "createdOn": "2022-03-18T16:00:55.466Z",
+  "categoryId": 5
+}
+
+### Updates single or multiple properties in single record
+PATCH http://localhost:3200/adverts/2
+Content-Type: application/json
+
+{
+  "title": "Medium pizza",
+  "categoryId": 6
+}
+
+### Deletes single record
+DELETE localhost:3200/adverts/2
+
+### Find all records that mach query
+GET http://localhost:3200/adverts?title_like=Cotton
+Accept: application/json

@@ -13,6 +13,7 @@ import OfferSide from "./offers/OfferSide.jsx";
 import Category from "./offers/Category.jsx";
 import ErrorPage from "./ErrorPage.jsx";
 import axios from "axios";
+import {CategoryProvider} from "./context/CategoryContext.jsx";
 
 axios.defaults.baseURL = "http://127.0.0.1:3200";
 // axios.defaults.headers = ;
@@ -28,8 +29,11 @@ const router = createBrowserRouter([
                 element: <AllOffers/>
             },
             {
-                path: '/category/:categoryTitle',
-                element: <Category/>
+                path: '/category/:categoryId',
+                element:
+                    <CategoryProvider>
+                        <Category/>
+                    </CategoryProvider>
             },
             {
                 path: "/profile",

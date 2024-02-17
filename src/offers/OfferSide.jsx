@@ -1,6 +1,6 @@
 import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
-import React, {useCallback, useEffect, useMemo, useState} from "react";
+import  {useCallback, useEffect, useState} from "react";
 import Container from "react-bootstrap/Container";
 import {Col, OverlayTrigger, Row, Tooltip} from "react-bootstrap";
 import OfferSideCarousel from "../components/OfferSideCarousel.jsx";
