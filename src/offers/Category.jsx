@@ -31,6 +31,7 @@ export default function Category() {
 
     }, [nav, categories, adverts, categoryId, getOffersByCategory]);
 
+
     return (
         <>
             <Container fluid>

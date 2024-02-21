@@ -11,8 +11,8 @@ export const CategoryProvider = ({children}) => {
 
     const getOffersByCategory = (adverts, categories, categoryId) => {
         if (adverts && categories) {
-            const category = categories.filter((cat) =>{
-                return  cat.id === categoryId
+            const category = categories.filter((cat) => {
+                return cat.id === categoryId
             });
 
             if (category.length === 0) {

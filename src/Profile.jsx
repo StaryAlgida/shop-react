@@ -1,26 +1,11 @@
 import Container from "react-bootstrap/Container";
 import {Col, Image, Row} from "react-bootstrap";
-import {useEffect, useState} from "react";
-import axios from "axios";
 import AccordionOptions from "./components/AccordionOptions.jsx";
+import {useUserData} from "./customHooks/useUserData.jsx";
 
 export default function Profile(){
-    const client = axios.create({
-        baseURL: "http://127.0.0.1:3200",
-    });
-    const [profile, setProfile] = useState([])
-    const getData = async ()=>{
-        try{
-            const response = await client.get('/name')
-            setProfile({...response.data})
-            console.log(response.data)
-        }catch (error){
-            console.log(error)
-        }
-    }
-    useEffect(() => {
-        void getData()
-    }, []);
+    const profile = useUserData()
+
     return(
         <>
             <Container fluid>

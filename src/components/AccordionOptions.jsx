@@ -3,30 +3,37 @@ import AddForm from "../forms/AddForm.jsx";
 import EditForm from "../forms/EditForm.jsx";
 import DeleteForm from "../forms/DeleteForm.jsx";
 import {string} from "prop-types";
+import {FormProvider} from "../context/FromsContext.jsx";
 
-AccordionOptions.propTypes={
+AccordionOptions.propTypes = {
     seller: string,
 }
-export default function AccordionOptions({seller}){
+export default function AccordionOptions({seller}) {
 
     return (
         <Accordion defaultActiveKey='0' flush>
             <Accordion.Item eventKey="0">
                 <Accordion.Header>Add</Accordion.Header>
                 <Accordion.Body>
-                    <AddForm seller={seller}/>
+                    <FormProvider>
+                        <AddForm seller={seller}/>
+                    </FormProvider>
                 </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="1">
                 <Accordion.Header>Edit</Accordion.Header>
                 <Accordion.Body>
-                    <EditForm/>
+                    <FormProvider>
+                        <EditForm/>
+                    </FormProvider>
                 </Accordion.Body>
             </Accordion.Item>
             <Accordion.Item eventKey="2">
                 <Accordion.Header>Delete</Accordion.Header>
                 <Accordion.Body>
-                    <DeleteForm/>
+                    <FormProvider>
+                        <DeleteForm/>
+                    </FormProvider>
                 </Accordion.Body>
             </Accordion.Item>
         </Accordion>

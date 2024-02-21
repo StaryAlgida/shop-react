@@ -6,94 +6,82 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import {Dropdown, FloatingLabel, Modal} from "react-bootstrap";
 import axios from "axios";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
+import {useAdverts} from "../customHooks/useAdverts.jsx";
+import {useCategories} from "../customHooks/useCategories.jsx";
+import {FormContext} from "../context/FromsContext.jsx";
 
-export default function EditForm(){
-    const { Formik } = formik;
-    const client = axios.create({
-        baseURL: "http://127.0.0.1:3200",
-    });
+export default function EditForm() {
+    const {Formik} = formik;
+    const {sendEditForm} = useContext(FormContext)
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const [items, setItems] = useState([])
     const [selectedItemId, setSelectedItemId] = useState('')
     const [itemInfo, setItemInfo] = useState({
-        title:'',
-        price:'',
-        description:'',
-        image:'',
-        sellerPhone:'',
-        canNegotiate:'',
-        categoryId:''
+        title: '',
+        price: '',
+        description: '',
+        image: '',
+        sellerPhone: '',
+        canNegotiate: '',
+        categoryId: ''
     })
-    const [category, setCategory] = useState([])
-    const getItemsToEdit = async ()=>{
-        try {
-            const responseItems = await client.get("/adverts")
 
-            const categories = await client.get('/categories')
-            setCategory([...categories.data])
+    const responseItems = useAdverts()
+    const category = useCategories()
 
-            const finalData = responseItems.data.map(item=>(
-                {
-                    id: item.id,
-                    title: item.title
-                }
-            ))
-            console.log(finalData)
-            setItems([...finalData])
-        }catch (error){
-            console.log(error)
-        }
-    }
 
-    const getItemInfo = async (itemId)=>{
-        try {
-            const responseItems = await client.get(`/adverts/${itemId}`)
-            setItemInfo({...responseItems.data})
-        }catch (error){
-            console.log(error)
-        }
-    }
-
-    const putItem = async (data)=>{
-        try {
-            const finalData = {...data, seller:itemInfo.seller}
-            finalData.categoryId = parseInt(finalData.categoryId)
-            finalData.price = `${finalData.price}`
-            finalData.createdOn = itemInfo.createdOn
-            finalData.canNegotiate = finalData.canNegotiate === "true"
-            console.log(finalData.categoryId)
-            const response = await client.put(`/adverts/${selectedItemId}`, finalData)
-            console.log(response.data)
+    const submit = (data) => {
+        if (sendEditForm(data, itemInfo, selectedItemId)) {
             setShow(true)
             setSelectedItemId('')
-        }catch (error){
-            console.log(error)
         }
+    }
+
+    const checkIfSelected = () => {
+        return selectedItemId === '';
     }
 
     const phoneRegExp = /^\+\d{2} \d{3} \d{3} \d{3}$/
     const schema = yup.object().shape({
-        title: yup.string().required().min('2',"Title too short"),
+        title: yup.string().required().min('2', "Title too short"),
         price: yup.number().required().positive("Price too low"),
         image: yup.string().required(),
         canNegotiate: yup.string().required(),
         categoryId: yup.string().required(),
         sellerPhone: yup.string().required('Phone number is a required field.').matches(phoneRegExp, 'Phone number is not valid'),
-        description: yup.string().required("Description field is required.").min('5',"Description too shor"),
+        description: yup.string().required("Description field is required.").min('5', "Description too shor"),
     });
 
-    const checkIfSelected = ()=>{
-        return selectedItemId === '';
-    }
 
     useEffect(() => {
-        void getItemsToEdit()
-    }, []);
+        const getItemsToEdit = () => {
+            const finalData = responseItems.map(item => (
+                {
+                    id: item.id,
+                    title: item.title
+                }
+            ))
+            console.log('item to edit')
+            console.log(finalData)
+            setItems([...finalData])
+        }
+        if (responseItems.length !== 0) {
+            void getItemsToEdit()
+        }
+    }, [responseItems]);
 
     useEffect(() => {
+        const getItemInfo = async (itemId) => {
+            try {
+                const responseItems = await axios.get(`/adverts/${itemId}`)
+                setItemInfo({...responseItems.data})
+            } catch (error) {
+                console.log(error)
+            }
+        }
         void getItemInfo(selectedItemId)
     }, [selectedItemId]);
 
@@ -105,10 +93,11 @@ export default function EditForm(){
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                    {items.length===0?
-                        <Dropdown.Item>Loading...</Dropdown.Item>:
-                        items.map(item=>(
-                            <Dropdown.Item key={item.id} onClick={()=>setSelectedItemId(item.id)}>{item.title}</Dropdown.Item>
+                    {items.length === 0 ?
+                        <Dropdown.Item>Loading...</Dropdown.Item> :
+                        items.map(item => (
+                            <Dropdown.Item key={item.id}
+                                           onClick={() => setSelectedItemId(item.id)}>{item.title}</Dropdown.Item>
                         ))
                     }
                 </Dropdown.Menu>
@@ -117,18 +106,18 @@ export default function EditForm(){
             <Formik
                 enableReinitialize={true}
                 validationSchema={schema}
-                onSubmit={putItem}
+                onSubmit={submit}
                 initialValues={{
-                    title: itemInfo.title!==undefined?itemInfo.title:'',
-                    price: itemInfo.price!==undefined?itemInfo.price:'',
-                    image: itemInfo.image!==undefined?itemInfo.image:'',
-                    canNegotiate: itemInfo.canNegotiate!==undefined?itemInfo.canNegotiate:'',
-                    categoryId: itemInfo.categoryId!==undefined?itemInfo.categoryId:'',
-                    sellerPhone:itemInfo.sellerPhone!==undefined?itemInfo.sellerPhone:'',
-                    description:itemInfo.description!==undefined?itemInfo.description:'',
+                    title: itemInfo.title !== undefined ? itemInfo.title : '',
+                    price: itemInfo.price !== undefined ? itemInfo.price : '',
+                    image: itemInfo.image !== undefined ? itemInfo.image : '',
+                    canNegotiate: itemInfo.canNegotiate !== undefined ? itemInfo.canNegotiate : '',
+                    categoryId: itemInfo.categoryId !== undefined ? itemInfo.categoryId : '',
+                    sellerPhone: itemInfo.sellerPhone !== undefined ? itemInfo.sellerPhone : '',
+                    description: itemInfo.description !== undefined ? itemInfo.description : '',
                 }}
             >
-                {({ handleSubmit, handleChange, values, touched, errors }) => (
+                {({handleSubmit, handleChange, values, touched, errors}) => (
                     <Form noValidate onSubmit={handleSubmit}>
                         <Row className="mb-3">
                             <Form.Group as={Col} md="6" controlId="validationFormik01">
@@ -195,7 +184,7 @@ export default function EditForm(){
                                     isInvalid={!!errors.canNegotiate}
                                     disabled={checkIfSelected()}
                                 >
-                                    <option> </option>
+                                    <option></option>
                                     <option value={true}>Yes</option>
                                     <option value={false}>No</option>
                                 </Form.Select>
@@ -217,8 +206,8 @@ export default function EditForm(){
                                     isInvalid={!!errors.categoryId}
                                     disabled={checkIfSelected()}
                                 >
-                                    <option> </option>
-                                    {category.map(item=>(
+                                    <option></option>
+                                    {category.map(item => (
                                         <option key={item.id} value={item.id}>{item.title}</option>
                                     ))}
                                 </Form.Select>
@@ -257,7 +246,7 @@ export default function EditForm(){
                                         onChange={handleChange}
                                         isValid={touched.description && !errors.description}
                                         isInvalid={!!errors.description}
-                                        style={{ height: '75px' }}
+                                        style={{height: '75px'}}
                                         disabled={checkIfSelected()}
                                     />
                                     <Form.Control.Feedback type="invalid">

@@ -4,65 +4,34 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import * as formik from 'formik';
 import * as yup from 'yup';
-import {useEffect, useState} from "react";
-import axios from "axios";
+import {useContext, useState} from "react";
 import {FloatingLabel, Modal} from "react-bootstrap";
-import { string} from "prop-types";
+import {string} from "prop-types";
+import {FormContext} from "../context/FromsContext.jsx";
+import {useCategories} from "../customHooks/useCategories.jsx";
 
-AddForm.propTypes={
+AddForm.propTypes = {
     seller: string,
 }
-export default function AddForm({seller}){
-    const client = axios.create({
-        baseURL: "http://127.0.0.1:3200",
-    });
+export default function AddForm({seller}) {
 
-    const [category, setCategory] = useState([])
+    const category = useCategories()
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
-    const sendData = async (data)=>{
-        try{
-            const currentDate = new Date()
-            const finalData = {...data, seller}
-            delete finalData.terms
-            finalData.categoryId = parseInt(finalData.categoryId)
-            finalData.price = finalData.price.toFixed(2)
-            finalData.price = `${finalData.price}`
-            finalData.createdOn = currentDate.toISOString()
-            finalData.canNegotiate = finalData.canNegotiate === "true"
-            console.log(finalData)
 
-            const response = await client.post('/adverts', finalData)
-            console.log(response.data)
-            setShow(true)
-        }catch (error){
-            console.log(error)
-        }
-    }
-    const getCategory = async ()=>{
-        try{
-            const response = await client.get('/categories')
-            console.log(response.data)
-            setCategory([...response.data])
-        }catch (error){
-            console.log(error)
-        }
-    }
+    const {sendAddForm} = useContext(FormContext)
 
-    useEffect(() => {
-        void getCategory();
-    }, []);
 
-    const { Formik } = formik;
+    const {Formik} = formik;
     const phoneRegExp = /^\+\d{2} \d{3} \d{3} \d{3}$/
     const schema = yup.object().shape({
-        title: yup.string().required().min('2',"Title too short"),
+        title: yup.string().required().min('2', "Title too short"),
         price: yup.number().required().positive("Price too low"),
         image: yup.string().required(),
         canNegotiate: yup.string().required(),
         categoryId: yup.string().required(),
         sellerPhone: yup.string().required('Phone number is a required field.').matches(phoneRegExp, 'Phone number is not valid'),
-        description: yup.string().required("Description field is required.").min('5',"Description too shor"),
+        description: yup.string().required("Description field is required.").min('5', "Description too shor"),
         terms: yup.bool().required().oneOf([true], 'Terms must be accepted'),
     });
 
@@ -70,19 +39,23 @@ export default function AddForm({seller}){
         <>
             <Formik
                 validationSchema={schema}
-                onSubmit={sendData}
+                onSubmit={(data) => {
+                    if (sendAddForm(data, seller)) {
+                       setShow(true)
+                    }
+                }}
                 initialValues={{
                     title: '',
                     price: '',
                     image: '',
                     canNegotiate: '',
                     categoryId: '',
-                    sellerPhone:'',
-                    description:'',
+                    sellerPhone: '',
+                    description: '',
                     terms: false,
                 }}
             >
-                {({ handleSubmit, handleChange, values, touched, errors }) => (
+                {({handleSubmit, handleChange, values, touched, errors}) => (
                     <Form noValidate onSubmit={handleSubmit}>
                         <Row className="mb-3">
                             <Form.Group as={Col} md="6" controlId="validationFormik01">
@@ -145,7 +118,7 @@ export default function AddForm({seller}){
                                     isValid={touched.canNegotiate && !errors.canNegotiate}
                                     isInvalid={!!errors.canNegotiate}
                                 >
-                                    <option> </option>
+                                    <option></option>
                                     <option value={true}>Yes</option>
                                     <option value={false}>No</option>
                                 </Form.Select>
@@ -166,8 +139,8 @@ export default function AddForm({seller}){
                                     isValid={touched.categoryId && !errors.categoryId}
                                     isInvalid={!!errors.categoryId}
                                 >
-                                    <option> </option>
-                                    {category.map(item=>(
+                                    <option></option>
+                                    {category.map(item => (
                                         <option key={item.id} value={item.id}>{item.title}</option>
                                     ))}
                                 </Form.Select>
@@ -205,7 +178,7 @@ export default function AddForm({seller}){
                                         onChange={handleChange}
                                         isValid={touched.description && !errors.description}
                                         isInvalid={!!errors.description}
-                                        style={{ height: '75px' }}
+                                        style={{height: '75px'}}
                                     />
                                     <Form.Control.Feedback type="invalid">
                                         {errors.description}
