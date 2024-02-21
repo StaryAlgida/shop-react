@@ -5,11 +5,11 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import {Dropdown, FloatingLabel, Modal} from "react-bootstrap";
-import axios from "axios";
 import {useContext, useEffect, useState} from "react";
 import {useAdverts} from "../customHooks/useAdverts.jsx";
 import {useCategories} from "../customHooks/useCategories.jsx";
 import {FormContext} from "../context/FromsContext.jsx";
+import {useSingleAdvert} from "../customHooks/useSingleAdvert.jsx";
 
 export default function EditForm() {
     const {Formik} = formik;
@@ -19,19 +19,11 @@ export default function EditForm() {
     const handleClose = () => setShow(false);
     const [items, setItems] = useState([])
     const [selectedItemId, setSelectedItemId] = useState('')
-    const [itemInfo, setItemInfo] = useState({
-        title: '',
-        price: '',
-        description: '',
-        image: '',
-        sellerPhone: '',
-        canNegotiate: '',
-        categoryId: ''
-    })
 
     const responseItems = useAdverts()
     const category = useCategories()
 
+    const itemInfo = useSingleAdvert(selectedItemId)
 
     const submit = (data) => {
         if (sendEditForm(data, itemInfo, selectedItemId)) {
@@ -72,18 +64,6 @@ export default function EditForm() {
             void getItemsToEdit()
         }
     }, [responseItems]);
-
-    useEffect(() => {
-        const getItemInfo = async (itemId) => {
-            try {
-                const responseItems = await axios.get(`/adverts/${itemId}`)
-                setItemInfo({...responseItems.data})
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        void getItemInfo(selectedItemId)
-    }, [selectedItemId]);
 
     return (
         <>
